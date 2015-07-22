@@ -11,7 +11,7 @@ LOGSTASH_BINARY="${LOGSTASH_SRC_DIR}/bin/logstash"
 #
 LOGSTASH_DEFAULT_CONFIG_URL='https://git.labs.dell.com/projects/BD/repos/logstash-output-batched_http/browse/artifacts/logstash.conf?raw'
 LOGSTASH_CONFIG_URL=${LOGSTASH_CONFIG_URL:-${LOGSTASH_DEFAULT_CONFIG_URL}}
-LOGSTASH_CONFIG_DIR="/etc/logstash/conf.d"
+LOGSTASH_CONFIG_DIR="${LOGSTASH_SRC_DIR}/conf.d"
 LOGSTASH_CONFIG_PATH="${LOGSTASH_CONFIG_DIR}/**/*.conf"
 
 LOGSTASH_LOG_DIR='/var/log/logstash'
