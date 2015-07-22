@@ -19,8 +19,10 @@ RUN chmod +x /bin/boot
 # Creates the volume to a container created from that image
 VOLUME ["/host/var/log"]
 
+COPY ./boot /
+
 # Start logstash
-ENTRYPOINT ["/bin/boot"]
+ENTRYPOINT ["/boot"]
 
 # Valid commands: `agent`, `web`, `configtest`
 # Default (empty command) runs the ELK stack
