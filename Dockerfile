@@ -9,6 +9,10 @@ RUN mkdir ${LOGSTASH_HOME} && \
     wget https://git.labs.dell.com/projects/BD/repos/logstash-output-batched_http/browse/artifacts/logstash-1.5.0.tar.gz?raw && \
     tar -xzf logstash-1.5.0.tar.gz?raw && \
     rm logstash-1.5.0.tar.gz?raw
+	
+# Copy build files to container root
+RUN mkdir /app
+ADD . /app
 
 	
 # Creates the volume to a container created from that image
