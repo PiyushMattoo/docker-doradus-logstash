@@ -16,6 +16,8 @@ LOGSTASH_CONFIG_PATH="${LOGSTASH_CONFIG_DIR}/**/*.conf"
 
 LOGSTASH_LOG_DIR='/var/log/logstash'
 LOGSTASH_LOG_FILE="${LOGSTASH_LOG_DIR}/logstash.log"
+tableName="$(echo 'logs_'${DOCKER_APP_NAME}'_'${DOCKER_NAMESPACE})"
+data="{\"LoggingApplication\":{\"key\":\"LoggingApp\", \"tables\": {\"$tableName\": { \"fields\": {\"Timestamp\": {\"type\": \"timestamp\"},\"LogLevel\": {\"type\": \"text\"},\"Message\": {\"type\": \"text\"}, \"Source\": {\"type\": \"text\"}}}}}}"
 
 # Download single config file. Source file extension must be .conf
 #
@@ -95,6 +97,10 @@ function logstash_create_log_dir() {
     if ! mkdir -p "${log_dir}" ; then
         echo "Unable to create ${log_dir}" >&2
     fi
+}
+
+function create_doradus_table() {
+   curl -X POST -H "content-type: application/json" -u ${DOCKER_DORADUS_USER}:${DOCKER_DORADUS_PWD} -d "$data" http://${DORADUS_HOST}:${DORADUS_PORT}/_applications?tenant=${DOCKER_DORADUS_TENANT}
 }
 
 function logstash_start_agent() {

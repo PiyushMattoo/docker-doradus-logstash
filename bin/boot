@@ -21,6 +21,8 @@ function main() {
     logstash_download_config
 
     logstash_create_log_dir
+	
+	create_doradus_table
 
     # Fire up logstash!
     #
