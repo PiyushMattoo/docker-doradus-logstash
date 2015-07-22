@@ -4,7 +4,6 @@
 set -e -o pipefail
 
 LOGSTASH_SRC_DIR='/opt/logstash'
-LOGSTASH_BINARY="${LOGSTASH_SRC_DIR}/bin/logstash"
 
 # If you don't provide a value for the LOGSTASH_CONFIG_URL env
 # var, your install will default to our very basic logstash.conf file.
@@ -104,7 +103,6 @@ function create_doradus_table() {
 }
 
 function logstash_start_agent() {
-    local binary="$LOGSTASH_BINARY"
     local config_path="$LOGSTASH_CONFIG_PATH"
     local log_file="$LOGSTASH_LOG_FILE"
  
@@ -125,20 +123,6 @@ function logstash_start_agent() {
              --log "$log_file" \
              --configtest \
              --
-        ;;
-    # run just the web
-    'web')
-        exec "$binary" \
-             web
-        ;;
-    # run agent+web (default operation)
-    *)
-        exec "$binary" \
-             agent \
-             --config "$config_path" \
-             --log "$log_file" \
-             -- \
-             web
         ;;
     esac
 }

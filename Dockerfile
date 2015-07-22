@@ -8,6 +8,7 @@ ENV LOGSTASH_NAME="logstash-${LOGSTASH_VERSION}"
 ENV LOGSTASH_URL="https://git.labs.dell.com/projects/BD/repos/logstash-output-batched_http/browse/artifacts/${LOGSTASH_NAME}.tar.gz?raw"
 
 RUN mkdir ${LOGSTASH_HOME} && \
+    mkdir "/host/var/log" && \
     cd ${LOGSTASH_HOME} && \
     wget https://git.labs.dell.com/projects/BD/repos/logstash-output-batched_http/browse/artifacts/logstash-1.5.0.tar.gz?raw && \
     tar -xzf logstash-1.5.0.tar.gz?raw && \
@@ -27,4 +28,4 @@ ENTRYPOINT ["/boot"]
 
 # Valid commands: `agent`, `web`, `configtest`
 # Default (empty command) runs the ELK stack
-CMD []
+CMD ["agent"]
