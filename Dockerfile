@@ -10,9 +10,7 @@ RUN mkdir ${LOGSTASH_HOME} && \
     tar -xzf ./logstash-1.5.0.tar.gz && \
     mv ./logstash-1.5.0 /opt/logstash && \
     rm ./logstash-1.5.0.tar.gz && \
-	mkdir -p /var/log/logstash /etc/logstash/conf.d
-	
-ADD ./logstash-init /etc/init.d/logstash
+
 	
 # Creates the volume to a container created from that image
 VOLUME ["/host/var/log"]
