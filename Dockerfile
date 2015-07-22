@@ -17,7 +17,7 @@ RUN mkdir ${LOGSTASH_HOME} && \
     rm logstash-1.5.0.tar.gz?raw
 	
 # Create Logging Doradus Table
-curl -X POST -H "content-type: application/json" -u ${DOCKER_DORADUS_USER}:${DOCKER_DORADUS_PWD} -d "$data" http://${DORADUS_HOST}:${DORADUS_PORT}/_applications?tenant=${DOCKER_DORADUS_TENANT}
+RUN curl -X POST -H "content-type: application/json" -u ${DOCKER_DORADUS_USER}:${DOCKER_DORADUS_PWD} -d "$data" http://${DORADUS_HOST}:${DORADUS_PORT}/_applications?tenant=${DOCKER_DORADUS_TENANT}
 
 RUN chmod +x /bin/boot
 	
