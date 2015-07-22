@@ -8,7 +8,7 @@ sudo docker build -t pmattoo/docker-doradus-logstash .
 
 ## How to use this image
 
-docker run -i -t -e DORADUS_HOST=<Doradus_HOST> -e DORADUS_PORT=<DORADUS_PORT> -e DOCKER_APP_NAME=<DOCKER_APP_NAME> -e DOCKER_NAMESPACE=<DOCKER_NAMESPACE> -e DOCKER_DORADUS_TENANT=<DOCKER_DORADUS_TENANT> –e DOCKER_DORADUS_USER=<DOCKER_DORADUS_USER> –e DOCKER_DORADUS_PWD=<DOCKER_DORADUS_PWD> -v /var/log:/host/var/log pmattoo/docker-doradus-logstash
+`docker run -i -t -e DORADUS_HOST=<Doradus_HOST> -e DORADUS_PORT=<DORADUS_PORT> -e DOCKER_APP_NAME=<DOCKER_APP_NAME> -e DOCKER_NAMESPACE=<DOCKER_NAMESPACE> -e DOCKER_DORADUS_TENANT=<DOCKER_DORADUS_TENANT> –e DOCKER_DORADUS_USER=<DOCKER_DORADUS_USER> –e DOCKER_DORADUS_PWD=<DOCKER_DORADUS_PWD> -v /var/log:/host/var/log pmattoo/docker-doradus-logstash`
 
 ## Logstash configuration
 
