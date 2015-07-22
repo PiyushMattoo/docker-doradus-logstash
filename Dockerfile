@@ -13,13 +13,14 @@ RUN mkdir ${LOGSTASH_HOME} && \
     tar -xzf logstash-1.5.0.tar.gz?raw && \
 	mv ${LOGSTASH_NAME} logstash && \
     rm logstash-1.5.0.tar.gz?raw
-
-RUN chmod +x /bin/boot
 	
 # Creates the volume to a container created from that image
 VOLUME ["/host/var/log"]
 
 COPY ./boot /
+
+# Add executable permission to boot script
+RUN chmod +x /boot
 
 # Start logstash
 ENTRYPOINT ["/boot"]
