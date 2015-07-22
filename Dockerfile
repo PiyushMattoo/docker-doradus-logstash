@@ -7,9 +7,9 @@ ENV LOGSTASH_HOME /opt/logstash
 RUN mkdir ${LOGSTASH_HOME} && \
     cd /tmp && \
     wget https://git.labs.dell.com/projects/BD/repos/logstash-output-batched_http/browse/artifacts/logstash-1.5.0.tar.gz?raw && \
-    tar -xzf ./logstash-1.5.0.tar.gz && \
-    mv ./logstash-1.5.0 /opt/logstash && \
-    rm ./logstash-1.5.0.tar.gz && \
+    tar -xzf logstash-1.5.0.tar.gz && \
+    mv logstash-1.5.0 /opt/logstash && \
+    rm logstash-1.5.0.tar.gz && \
 
 	
 # Creates the volume to a container created from that image
