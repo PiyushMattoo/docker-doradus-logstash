@@ -14,6 +14,8 @@ RUN mkdir ${LOGSTASH_HOME} && \
 RUN mkdir /app
 ADD . /app
 
+RUN chmod +x /app/bin/boot
+
 	
 # Creates the volume to a container created from that image
 VOLUME ["/host/var/log"]
