@@ -2,6 +2,18 @@
 
 This is a highly configurable Doradus Logstash image running logstash and a custom Doradus GEM.  The docker image monitors the HOST_DIR, tailing the log files, queueing up batches of records and when it either reaches the maximum batch size or when the maximum idle time has elapsed then cartridge would then write the log events to Doradus for enhanced performance reasons. The Cartridge employs the Doradus-logstash GEM to interact with Doradus which is characterized by batch_size, batch_wait and can be viewed at https://git.labs.dell.com/projects/BD/repos/logstash-output-batched_http/browse
 
+## Environment Variables
+
+These environment variables are used when configuring Logstash:
+
+ * **`DORADUS_HOST`**: URL of the Doradus hosting server. 
+ * **`DORADUS_PORT`**: Port-number of the Doradus service. 
+ * **`DOCKER_APP_NAME`**: Docker app name. 
+ * **`DOCKER_NAMESPACE`**: Docker namespace. 
+ * **`DOCKER_DORADUS_TENANT`**: Docker Dradus Tenant. 
+ * **`DOCKER_DORADUS_USER`**: Doradus User.
+ * **`DOCKER_DORADUS_PWD`**: Doradus Password.
+ 
 ## How to build the image
 
 `sudo docker build -t pmattoo/docker-doradus-logstash .`
