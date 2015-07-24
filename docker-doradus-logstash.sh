@@ -18,18 +18,6 @@ LOGSTASH_LOG_FILE="${LOGSTASH_LOG_DIR}/logstash.log"
 tableName="$(echo 'logs_'${DOCKER_APP_NAME}'_'${DOCKER_NAMESPACE})"
 data="{\"LoggingApplication\":{\"key\":\"LoggingApp\", \"tables\": {\"$tableName\": { \"fields\": {\"Timestamp\": {\"type\": \"timestamp\"},\"LogLevel\": {\"type\": \"text\"},\"Message\": {\"type\": \"text\"}, \"Source\": {\"type\": \"text\"}}}}}}"
 
-
-logstash_create_config_dir
-
-logstash_download_config
-
-logstash_create_log_dir
-	
-create_doradus_table
-
-logstash_start_agent agent
-
-
 # Download single config file. Source file extension must be .conf
 #
 function __download_config() {
@@ -138,3 +126,14 @@ function logstash_start_agent() {
         ;;
     esac
 }
+
+
+logstash_create_config_dir
+
+logstash_download_config
+
+logstash_create_log_dir
+	
+create_doradus_table
+
+logstash_start_agent agent
