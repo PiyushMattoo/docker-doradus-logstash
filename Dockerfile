@@ -17,6 +17,7 @@ RUN mkdir ${LOGSTASH_HOME} && \
 # Creates the volume to a container created from that image
 VOLUME ["/host/var/log"]
 
+WORKDIR= /opt/logstash
 COPY ./boot /
 
 # Add executable permission to boot script
@@ -26,5 +27,4 @@ RUN chmod +x /boot
 ENTRYPOINT ["/boot"]
 
 # Valid commands: `agent`, `web`, `configtest`
-# Default (empty command) runs the ELK stack
 CMD ["agent"]
