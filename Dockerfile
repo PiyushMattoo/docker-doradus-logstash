@@ -24,4 +24,4 @@ RUN chmod a+x docker-doradus-logstash.sh
 # in the container.
 VOLUME ["/host/var/log"]
 
-CMD ["docker-doradus-logstash.sh"]
+CMD docker-doradus-logstash.sh
