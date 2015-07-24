@@ -14,17 +14,12 @@ RUN mkdir ${LOGSTASH_HOME} && \
 	mv ${LOGSTASH_NAME} logstash && \
     rm logstash-1.5.0.tar.gz?raw
 	
-# Creates the volume to a container created from that image
+# Add the script to run docker-doradus-logstash
+ADD bin/docker-doradus-logstash.sh docker-doradus-logstash.sh
+	
+# Any docker logs need to be mounted at /host/var/log. Typically, this means that
+# a volume should be created mapping /var/lib/docker/containers to /host/var/log 
+# in the container.
 VOLUME ["/host/var/log"]
 
-WORKDIR /opt/logstash
-COPY ./boot /
-
-# Add executable permission to boot script
-RUN chmod +x /boot
-
-# Start logstash
-ENTRYPOINT ["/boot"]
-
-# Valid commands: `agent`, `web`, `configtest`
-CMD ["agent"]
+CMD ["docker-doradus-logstash.sh"]

@@ -1,10 +1,10 @@
 # Doradus Logstash Dockerfile
 
-This is a highly configurable Doradus Logstash image running logstash and a custom Doradus GEM.  The docker image monitors the HOST_DIR, tailing the log files, queueing up batches of records and when it either reaches the maximum batch size or when the maximum idle time has elapsed then cartridge would then write the log events to Doradus for enhanced performance reasons. The Cartridge employs the Doradus-logstash GEM to interact with Doradus which is characterized by batch_size, batch_wait and can be viewed at https://git.labs.dell.com/projects/BD/repos/logstash-output-batched_http/browse
+This is a highly configurable Doradus Logstash image running logstash and a custom Doradus GEM.  The docker conatiner logs are read by mounting `/var/lib/docker/containers` inside the docker-doradus-logstash container. The docker image monitors the mounted directory, tailing the log files, queueing up batches of records and when it either reaches the maximum batch size or when the maximum idle time has elapsed then docker-doradus-logstash would then write the log events to Doradus for enhanced performance reasons. The image employs the Doradus-logstash GEM to interact with Doradus which is characterized by batch_size, batch_wait and can be viewed at https://git.labs.dell.com/projects/BD/repos/logstash-output-batched_http/browse
 
 ## Environment Variables
 
-These environment variables are used when configuring Logstash:
+Runtime behavior of docker-doradus-logstash can be modified by passing the below environment to `docker run` :
 
  * **`DORADUS_HOST`**: URL of the Doradus hosting server. 
  * **`DORADUS_PORT`**: Port-number of the Doradus service. 
