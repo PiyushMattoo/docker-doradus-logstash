@@ -5,6 +5,15 @@ set -e -o pipefail
 
 LOGSTASH_SRC_DIR='/opt/logstash'
 
+#Can be removed later
+DOCKER_DORADUS_USER=SuperDory
+DOCKER_DORADUS_PWD=Alpha1
+DORADUS_HOST=10.228.23.117
+DORADUS_PORT=1123
+DOCKER_DORADUS_TENANT=MattooPiyush
+DOCKER_APP_NAME=monlog
+DOCKER_NAMESPACE=service
+
 # If you don't provide a value for the LOGSTASH_CONFIG_URL env
 # var, your install will default to our very basic logstash.conf file.
 #
@@ -17,6 +26,9 @@ LOGSTASH_LOG_DIR='/var/log/logstash'
 LOGSTASH_LOG_FILE="${LOGSTASH_LOG_DIR}/logstash.log"
 tableName="$(echo 'logs_'${DOCKER_APP_NAME}'_'${DOCKER_NAMESPACE})"
 data="{\"LoggingApplication\":{\"key\":\"LoggingApp\", \"tables\": {\"$tableName\": { \"fields\": {\"Timestamp\": {\"type\": \"timestamp\"},\"LogLevel\": {\"type\": \"text\"},\"Message\": {\"type\": \"text\"}, \"Source\": {\"type\": \"text\"}}}}}}"
+
+
+
 
 # Download single config file. Source file extension must be .conf
 #
