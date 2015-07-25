@@ -20,7 +20,7 @@ Runtime behavior of docker-doradus-logstash can be modified by passing the below
 
 ## How to use this image
 
-`docker run -i -t -e DORADUS_HOST=<Doradus_HOST> -e DORADUS_PORT=<DORADUS_PORT> -e DOCKER_APP_NAME=<DOCKER_APP_NAME> -e DOCKER_NAMESPACE=<DOCKER_NAMESPACE> -e DOCKER_DORADUS_TENANT=<DOCKER_DORADUS_TENANT> –e DOCKER_DORADUS_USER=<DOCKER_DORADUS_USER> –e DOCKER_DORADUS_PWD=<DOCKER_DORADUS_PWD> -v <HOST_DIR>:/host/var/log pmattoo/docker-doradus-logstash`
+`sudo docker run -i -t --env DORADUS_HOST=<Doradus_HOST> --env DORADUS_PORT=<DORADUS_PORT> --env DOCKER_APP_NAME=<DOCKER_APP_NAME> --env DOCKER_NAMESPACE=<DOCKER_NAMESPACE> --env DOCKER_DORADUS_TENANT=<DOCKER_DORADUS_TENANT> –env DOCKER_DORADUS_USER=<DOCKER_DORADUS_USER> –env DOCKER_DORADUS_PWD=<DOCKER_DORADUS_PWD> -v /var/lib/docker/containers:/host/var/log pmattoo/docker-doradus-logstash`
 
 ## Logstash configuration
 
