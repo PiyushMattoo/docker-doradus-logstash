@@ -15,7 +15,7 @@ RUN mkdir ${LOGSTASH_HOME} && \
     rm logstash-1.5.0.tar.gz?raw
 	
 # Add the script to run docker-doradus-logstash
-COPY bin/docker-doradus-logstash.sh /opt/
+COPY docker-doradus-logstash.sh /usr/bin/
 
 RUN chmod a+x /opt/docker-doradus-logstash.sh
 	
@@ -24,4 +24,4 @@ RUN chmod a+x /opt/docker-doradus-logstash.sh
 # in the container.
 VOLUME ["/host/var/log"]
 
-CMD /opt/docker-doradus-logstash.sh
+ENTRYPOINT ["docker-doradus-logstash.sh"]
