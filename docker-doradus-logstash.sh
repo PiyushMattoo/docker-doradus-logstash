@@ -148,4 +148,4 @@ logstash_create_log_dir
 	
 create_doradus_table
 
-logstash_start_agent agent
+logstash_start_agent
