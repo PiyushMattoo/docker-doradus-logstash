@@ -5,6 +5,17 @@ set -e -o pipefail
 
 LOGSTASH_SRC_DIR='/opt/logstash'
 
+##Test
+DOCKER_DORADUS_USER=SuperDory
+DOCKER_DORADUS_PWD=Alpha1
+DORADUS_HOST=10.228.23.117
+DORADUS_PORT=1123
+DOCKER_DORADUS_TENANT=MattooPiyush
+DOCKER_APP_NAME=test
+DOCKER_NAMESPACE=service
+
+
+
 # If you don't provide a value for the LOGSTASH_CONFIG_URL env
 # var, your install will default to our very basic logstash.conf file.
 #
