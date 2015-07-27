@@ -131,15 +131,15 @@ function logstash_start_agent() {
 }
 
 function populate_log() {
-	touch one.log;
-	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
-	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
-	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
-	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
-	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
-	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
-	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
-	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
+	touch /var/log/one.log;
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
 }
 
 
