@@ -23,6 +23,6 @@ RUN chmod a+x /usr/bin/docker-doradus-logstash.sh
 # in the container.
 VOLUME ["/host/var/log"]
 
-ENTRYPOINT ["/usr/bin/docker-doradus-logstash.sh"]
+#ENTRYPOINT ["/usr/bin/docker-doradus-logstash.sh"]
 
-CMD ["agent"]
+#CMD ["agent"]
