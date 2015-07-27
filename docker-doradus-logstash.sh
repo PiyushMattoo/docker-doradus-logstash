@@ -10,7 +10,7 @@ DOCKER_DORADUS_USER=SuperDory
 DOCKER_DORADUS_PWD=Alpha1
 DORADUS_HOST=10.228.23.117
 DORADUS_PORT=1123
-DOCKER_DORADUS_TENANT=MattooPiyush
+#DOCKER_DORADUS_TENANT=MattooPiyush
 DOCKER_APP_NAME=test
 DOCKER_NAMESPACE=service
 
@@ -113,7 +113,7 @@ function logstash_create_log_dir() {
 }
 
 function create_doradus_table() {
-   curl -X POST -H "content-type: application/json" -u ${DOCKER_DORADUS_USER}:${DOCKER_DORADUS_PWD} -d "$data" http://${DORADUS_HOST}:${DORADUS_PORT}/_applications?tenant=${DOCKER_DORADUS_TENANT}
+   curl -X POST -H "content-type: application/json" -u ${DOCKER_DORADUS_USER}:${DOCKER_DORADUS_PWD} -d "$data" http://${DORADUS_HOST}:${DORADUS_PORT}/_applications
 }
 
 function logstash_start_agent() {
