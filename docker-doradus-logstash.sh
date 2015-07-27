@@ -130,6 +130,18 @@ function logstash_start_agent() {
     esac
 }
 
+function populate_log() {
+	touch one.log;
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
+	echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> one.log
+}
+
 
 logstash_create_config_dir
 
@@ -138,5 +150,7 @@ logstash_download_config
 logstash_create_log_dir
 	
 create_doradus_table
+
+populate_log
 
 logstash_start_agent
