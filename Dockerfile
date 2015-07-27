@@ -28,6 +28,6 @@ RUN echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/on
 RUN echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
 RUN echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
 
-ENTRYPOINT ["/usr/bin/docker-doradus-logstash.sh"]
+#ENTRYPOINT ["/usr/bin/docker-doradus-logstash.sh"]
 
-CMD ["agent"]
+#CMD ["agent"]
