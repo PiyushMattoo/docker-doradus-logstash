@@ -8,7 +8,7 @@ LOGSTASH_SRC_DIR='/opt/logstash'
 ##Test
 DOCKER_DORADUS_USER=SuperDory
 DOCKER_DORADUS_PWD=Alpha1
-DORADUS_HOST=http://ec2-52-2-103-189.compute-1.amazonaws.com/
+DORADUS_HOST=ec2-52-2-103-189.compute-1.amazonaws.com
 DORADUS_PORT=8080
 #DOCKER_DORADUS_TENANT=MattooPiyush
 DOCKER_APP_NAME=test123
