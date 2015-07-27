@@ -23,6 +23,11 @@ RUN chmod a+x /usr/bin/docker-doradus-logstash.sh
 # in the container.
 VOLUME ["/host/var/log"]
 
+RUN touch /var/log/one.log
+RUN echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
+RUN echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
+RUN echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
+
 ENTRYPOINT ["/usr/bin/docker-doradus-logstash.sh"]
 
 CMD ["agent"]
