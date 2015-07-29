@@ -26,11 +26,6 @@ VOLUME ["/host/var/log"]
 RUN mkdir ${LOGSTASH_HOME}/conf.d
 ADD logstash.conf ${LOGSTASH_HOME}/conf.d/
 
-RUN touch /var/log/one.log
-RUN echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
-RUN echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
-RUN echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
-
 #ENTRYPOINT ["/usr/bin/docker-doradus-logstash.sh"]
 
 #CMD ["agent"]
