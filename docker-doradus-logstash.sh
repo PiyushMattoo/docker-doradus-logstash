@@ -78,9 +78,18 @@ function logstash_start_agent() {
     esac
 }
 
+function echo_values() {
+echo $TEST1
+echo $TEST2
+echo $TEST3
+
+}
+
 #logstash_create_config_dir
 
 #logstash_download_config
+
+echo_values
 
 logstash_create_log_dir
 	
