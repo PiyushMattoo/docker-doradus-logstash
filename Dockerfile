@@ -15,13 +15,17 @@ RUN mkdir ${LOGSTASH_HOME} && \
     rm logstash-1.5.0.tar.gz?raw
 	
 # Add the script to run docker-doradus-logstash
-COPY docker-doradus-logstash.sh /usr/bin/
+ADD docker-doradus-logstash.sh /usr/bin/
 RUN chmod a+x /usr/bin/docker-doradus-logstash.sh
 	
 # Any docker logs need to be mounted at /host/var/log. Typically, this means that
 # a volume should be created mapping /var/lib/docker/containers to /host/var/log 
 # in the container.
+RUN mkdir /host/var/log
 VOLUME ["/host/var/log"]
+
+RUN mkdir ${LOGSTASH_HOME}/conf.d
+ADD logstash.conf ${LOGSTASH_HOME}/conf.d/
 
 RUN touch /var/log/one.log
 RUN echo "`date +"%Y-%m-%d %H:%M:%S"` INFO testmessage`date +%N`" >> /var/log/one.log
