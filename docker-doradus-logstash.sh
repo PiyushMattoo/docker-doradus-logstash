@@ -22,14 +22,6 @@ tableName="$(echo 'logs_'${DOCKER_APP_NAME}'_'${DOCKER_NAMESPACE})"
 data="{\"LoggingApplication\":{\"key\":\"LoggingApp\", \"tables\": {\"$tableName\": { \"fields\": {\"Timestamp\": {\"type\": \"timestamp\"},\"LogLevel\": {\"type\": \"text\"},\"Message\": {\"type\": \"text\"}, \"Source\": {\"type\": \"text\"}}}}}}"
 
 
-function logstash_create_log_dir() {
-    local log_dir="$LOGSTASH_LOG_DIR"
-
-    if ! mkdir -p "${log_dir}" ; then
-        echo "Unable to create ${log_dir}" >&2
-    fi
-}
-
 function create_doradus_table() {
    curl -X POST -H "content-type: application/json" -u ${DOCKER_DORADUS_USER}:${DOCKER_DORADUS_PWD} -d "$data" http://${DORADUS_HOST}:${DORADUS_PORT}/_applications
 }
@@ -60,8 +52,7 @@ function logstash_start_agent() {
     esac
 }
 
-logstash_create_log_dir
-	
+
 create_doradus_table
 
 logstash_start_agent agent
