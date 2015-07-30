@@ -4,6 +4,7 @@
 set -e -o pipefail
 
 LOGSTASH_SRC_DIR='/opt/logstash'
+LOGSTASH_BINARY="${LOGSTASH_SRC_DIR}/bin/logstash"
 
 ##Test
 DOCKER_DORADUS_USER=SuperDory
@@ -14,16 +15,7 @@ DORADUS_PORT=8080
 DOCKER_APP_NAME=test
 DOCKER_NAMESPACE=service
 
-
-
-# If you don't provide a value for the LOGSTASH_CONFIG_URL env
-# var, your install will default to our very basic logstash.conf file.
-#
-LOGSTASH_DEFAULT_CONFIG_URL='https://git.labs.dell.com/projects/BD/repos/logstash-output-batched_http/browse/artifacts/logstash.conf?raw'
-#LOGSTASH_CONFIG_URL=${LOGSTASH_CONFIG_URL:-${LOGSTASH_DEFAULT_CONFIG_URL}}
 LOGSTASH_CONFIG_DIR="${LOGSTASH_SRC_DIR}/conf.d"
-LOGSTASH_CONFIG_PATH="${LOGSTASH_CONFIG_DIR}/**/*.conf"
-
 LOGSTASH_LOG_DIR='/var/log/logstash'
 LOGSTASH_LOG_FILE="${LOGSTASH_LOG_DIR}/logstash.log"
 tableName="$(echo 'logs_'${DOCKER_APP_NAME}'_'${DOCKER_NAMESPACE})"
@@ -38,22 +30,12 @@ function logstash_create_log_dir() {
     fi
 }
 
-# Create the logstash conf dir if it doesn't already exist
-#
-function logstash_create_config_dir() {
-    local config_dir="$LOGSTASH_CONFIG_DIR"
-
-    if ! mkdir -p "${config_dir}" ; then
-        echo "Unable to create ${config_dir}" >&2
-    fi
-}
-
-
 function create_doradus_table() {
    curl -X POST -H "content-type: application/json" -u ${DOCKER_DORADUS_USER}:${DOCKER_DORADUS_PWD} -d "$data" http://${DORADUS_HOST}:${DORADUS_PORT}/_applications
 }
 
 function logstash_start_agent() {
+    local binary="$LOGSTASH_BINARY"
     local config_path="$LOGSTASH_CONFIG_DIR/logstash.conf"
     local log_file="$LOGSTASH_LOG_FILE"
  
@@ -78,21 +60,8 @@ function logstash_start_agent() {
     esac
 }
 
-function echo_values() {
-echo $TEST1
-echo $TEST2
-echo $TEST3
-
-}
-
-#logstash_create_config_dir
-
-#logstash_download_config
-
-echo_values
-
 logstash_create_log_dir
 	
 create_doradus_table
 
-logstash_start_agent
+logstash_start_agent agent
