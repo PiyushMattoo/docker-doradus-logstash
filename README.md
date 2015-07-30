@@ -23,4 +23,4 @@ To start a basic container, execute the below command:
 `docker run -i -t -v /var/log:/host/var/log --name <your-container-name> pmattoo/docker-doradus-logstash /bin/bash`
 
 In the container, run the below command:
-`/usr/bin/docker-doradus-logstash.sh agent`
+`/usr/bin/docker-doradus-logstash.sh`
