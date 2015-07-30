@@ -23,7 +23,7 @@ RUN chmod a+x /usr/bin/docker-doradus-logstash.sh
 # in the container.
 VOLUME ["/host/var/log"]
 
-RUN mkdir /var/log/logstash/logstash.log
+RUN mkdir /var/log/logstash
 RUN mkdir ${LOGSTASH_HOME}/conf.d
 ADD logstash.conf ${LOGSTASH_HOME}/conf.d/
 
