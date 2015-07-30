@@ -4,7 +4,7 @@
 set -e -o pipefail
 
 LOGSTASH_SRC_DIR='/opt/logstash'
-LOGSTASH_BINARY="${LOGSTASH_SRC_DIR}/bin/logstash"
+LOGSTASH_BINARY="${LOGSTASH_SRC_DIR}/logstash/bin/logstash"
 
 ##Test
 DOCKER_DORADUS_USER=SuperDory
