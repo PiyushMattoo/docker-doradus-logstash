@@ -6,15 +6,6 @@ set -e -o pipefail
 LOGSTASH_SRC_DIR='/opt/logstash'
 LOGSTASH_BINARY="${LOGSTASH_SRC_DIR}/logstash/bin/logstash"
 
-##Test
-#DOCKER_DORADUS_USER=SuperDory
-#DOCKER_DORADUS_PWD=Alpha1
-#DORADUS_HOST=ec2-52-2-103-189.compute-1.amazonaws.com
-#DORADUS_PORT=8080
-#DOCKER_DORADUS_TENANT=MattooPiyush
-#DOCKER_APP_NAME=test
-#DOCKER_NAMESPACE=service
-
 LOGSTASH_CONFIG_DIR="${LOGSTASH_SRC_DIR}/conf.d"
 LOGSTASH_LOG_DIR='/var/log/logstash'
 LOGSTASH_LOG_FILE="${LOGSTASH_LOG_DIR}/logstash.log"
@@ -23,7 +14,7 @@ data="{\"LoggingApplication\":{\"key\":\"LoggingApp\", \"tables\": {\"$tableName
 
 
 function create_doradus_table() {
-   curl -X POST -H "content-type: application/json" -u ${DOCKER_DORADUS_USER}:${DOCKER_DORADUS_PWD} -d "$data" http://${DORADUS_HOST}:${DORADUS_PORT}/_applications
+   curl -X POST -H "content-type: application/json" -u ${DOCKER_DORADUS_USER}:${DOCKER_DORADUS_PWD} -d "$data" ${DORADUS_HOST}:${DORADUS_PORT}/_applications
 }
 
 function logstash_start_agent() {
