@@ -27,6 +27,6 @@ RUN mkdir /var/log/logstash
 RUN mkdir ${LOGSTASH_HOME}/conf.d
 ADD logstash.conf ${LOGSTASH_HOME}/conf.d/
 
-ENTRYPOINT ["/usr/bin/docker-doradus-logstash.sh"]
+#ENTRYPOINT ["/usr/bin/docker-doradus-logstash.sh"]
 
-CMD ["agent"]
+#CMD ["agent"]
