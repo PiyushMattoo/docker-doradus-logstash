@@ -46,4 +46,4 @@ function logstash_start_agent() {
 
 create_doradus_table
 
-logstash_start_agent agent
+logstash_start_agent
