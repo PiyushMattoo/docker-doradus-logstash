@@ -20,7 +20,4 @@ Runtime behavior of docker-doradus-logstash can be modified by passing the below
 ## How to use this image
 
 To start a basic container, execute the below command:
-`docker run -i -t -v /var/log:/host/var/log --name <your-container-name> pmattoo/docker-doradus-logstash /bin/bash`
-
-In the container, run the below command:
-`/usr/bin/docker-doradus-logstash.sh`
+`docker run --env DORADUS_HOST=<Doradus_Host_Name> --env DORADUS_PORT=<Doradus_Port> --env DOCKER_APP_NAME=<Docker_App_Name> --env DOCKER_NAMESPACE=<Docker_Namespace> --env DOCKER_DORADUS_USER=<Doradus_User> --env DOCKER_DORADUS_PWD=<Dradus_Password> -v /var/log:/host/var/log --name <container-name> -i -t pmattoo/docker-doradus-logstash`
