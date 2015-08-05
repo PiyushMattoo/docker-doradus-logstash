@@ -29,4 +29,4 @@ ADD logstash.conf ${LOGSTASH_HOME}/conf.d/
 
 ENTRYPOINT ["/usr/bin/docker-doradus-logstash.sh"]
 
-CMD ["agent"]
+#CMD ["agent"]
