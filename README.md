@@ -15,9 +15,9 @@ Runtime behavior of docker-doradus-logstash can be modified by passing the below
  
 ## How to build the image
 
-`sudo docker build -t pmattoo/docker-doradus-logstash .`
+`sudo docker build -t dell-oss/docker-doradus-logstash .`
 
 ## How to use this image
 
 To start a basic container, execute the below command:
-`docker run --env DORADUS_HOST=<Doradus_Host_Name> --env DORADUS_PORT=<Doradus_Port> --env DOCKER_APP_NAME=<Docker_App_Name> --env DOCKER_NAMESPACE=<Docker_Namespace> --env DOCKER_DORADUS_USER=<Doradus_User> --env DOCKER_DORADUS_PWD=<Dradus_Password> -v /var/log:/host/var/log --name <container-name> -i -t pmattoo/docker-doradus-logstash`
+`docker run --env DORADUS_HOST=<Doradus_Host_Name> --env DORADUS_PORT=<Doradus_Port> --env DOCKER_APP_NAME=<Docker_App_Name> --env DOCKER_NAMESPACE=<Docker_Namespace> --env DOCKER_DORADUS_USER=<Doradus_User> --env DOCKER_DORADUS_PWD=<Dradus_Password> -v /var/log:/host/var/log --name <container-name> -i -t dell-oss/docker-doradus-logstash`
